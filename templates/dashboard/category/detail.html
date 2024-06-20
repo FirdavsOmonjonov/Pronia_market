@@ -1,0 +1,44 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+
+<td>
+    <td class="text-muted">
+          <!-- Button trigger modal -->
+        <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right" data-toggle="modal" data-target="#editModal{{forloop.counter}}">
+            <i class="anticon anticon-edit"></i>
+        </button>
+        <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target="#deleteModal{{forloop.counter}}">
+            <i class="anticon anticon-delete"></i>
+        </button>
+    </td>
+</td>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal oyna sarlavxasi</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <i class="anticon anticon-close"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="get" action="">
+                        {% csrf_token %}
+                        {{q.name}}
+                        <div class="modal-header">
+                            <input type="checkbox" class="form-check-input" id="customCheckcolor7" required>
+                            <label for="chkb">Ha</label> <br> <br>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-dark" data-dismiss="modal">Orqaga</button>
+                            <button type="submit" class="btn btn-close btn-danger">O'chirish</button>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

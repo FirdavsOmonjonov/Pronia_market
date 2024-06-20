@@ -1,0 +1,547 @@
+{% extends 'front/base.html' %}
+{% load static %}
+{% block content %}
+
+        <!-- Begin Slider Area -->
+        <div class="slider-area">
+
+            <!-- Main Slider -->
+            <div class="swiper-container main-slider-2 swiper-arrow with-bg_white">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide animation-style-02">
+                        <div class="slide-inner style-2" data-bg-image="{% static 'front/images/slider/bg/2-1.jpg' %}">
+                            <div class="slide-content text-black">
+                                <h2 class="title">Pronia market</h2>
+                                <p class="short-desc">Pronia, do'konida 100% tabiy va sifatli maxsulotlarni olishingiz mumkin</p>
+                                <div class="btn-wrap">
+                                    <a class="btn btn-custom-size xl-size btn-pronia-primary" href="shop.html">Savdoni boshlash</a>
+                                </div>
+                            </div>
+                            <div class="slide-img">
+                                <img src="{% static 'front/images/slider/slide-img/2-1-960x741.jpg' %}" alt="Slide Image">
+                                <div class="slide-count">
+                                    <span class="data-count" data-count="01">
+                                <span class="forward-slash">/</span>
+                                    <span>03</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide animation-style-02">
+                        <div class="slide-inner style-2" data-bg-image="{% static 'front/images/slider/bg/2-1.jpg' %}">
+                            <div class="slide-content text-black">
+                                <h2 class="title">Pronia market</h2>
+                                <p class="short-desc">Pronia, do'konida 100% tabiy va sifatli maxsulotlarni olishingiz mumkin</p>
+                                <div class="btn-wrap">
+                                    <a class="btn btn-custom-size xl-size btn-pronia-primary" href="shop.html">Savdoni boshlash</a>
+                                </div>
+                            </div>
+                            <div class="slide-img">
+                                <img src="{% static 'front/images/slider/slide-img/2-2-960x741.jpg' %}" alt="Slide Image">
+                                <div class="slide-count">
+                                    <span class="data-count" data-count="02">
+                                <span class="forward-slash">/</span>
+                                    <span>03</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide animation-style-02">
+                        <div class="slide-inner style-2" data-bg-image="{% static 'front/images/slider/bg/2-1.jpg' %}">
+                            <div class="slide-content text-black">
+                                <h2 class="title">Pronia market</h2>
+                                <p class="short-desc">Pronia, do'konida 100% tabiy va sifatli maxsulotlarni olishingiz mumkin</p>
+                                <div class="btn-wrap">
+                                    <a class="btn btn-custom-size xl-size btn-pronia-primary" href="shop.html">Savdoni boshlash</a>
+                                </div>
+                            </div>
+                            <div class="slide-img">
+                                <img src="{% static 'front/images/slider/slide-img/2-3-960x741.jpg' %}" alt="Slide Image">
+                                <div class="slide-count">
+                                    <span class="data-count" data-count="03">
+                                <span class="forward-slash">/</span>
+                                    <span>03</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add Arrows -->
+                <div class="slide-button-wrap">
+                    <div class="slide-button-prev">
+                        <i class="pe-7s-angle-left"></i>
+                    </div>
+                    <div class="slide-button-next">
+                        <i class="pe-7s-angle-right"></i>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- Slider Area End Here -->
+
+
+
+        <!-- Begin Product Area -->
+        <div class="product-area section-space-top-100 section-space-bottom-90">
+            <div class="container">
+                <div class="section-title-wrap">
+                    <h2 class="section-title mb-0">Bizning maxsulotlarimiz</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul class="nav product-tab-nav tab-style-1" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a class="active" id="featured-tab" data-bs-toggle="tab" href="#featured" role="tab" aria-controls="featured" aria-selected="true">
+                                    Tavsiya etilgan
+                                </a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a id="bestseller-tab" data-bs-toggle="tab" href="#bestseller" role="tab" aria-controls="bestseller" aria-selected="false">
+                                    Bozori chaqqon
+                                </a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a id="latest-tab" data-bs-toggle="tab" href="#latest" role="tab" aria-controls="latest" aria-selected="false">
+                                    Oxirgi
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="featured" role="tabpanel" aria-labelledby="featured-tab">
+                                <div class="product-item-wrap row">
+                                    {% for product in products %}
+                                        <div class="col-md-4 col-sm-6">
+                                           
+                                            <div class="product-item">
+                                                
+                                                <div class="product-img">
+                                                    <a href="{% url 'front:product_detail' product.id %}">
+                                                        <img class="primary-img" src="{{product.banner_img.url}}" alt="Product Images">
+                                                        <img class="secondary-img" src="{{product.banner_img.url}}" alt="Product Images">
+                                                    </a>
+                                                    <div class="product-add-action">
+                                                        <ul>
+                                                            <li>
+                                                                <a href="{% url 'front:add_wishlist' product.code %}" data-tippy="Sevimlilarga qo'shish" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                                    <i class="pe-7s-like"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li class="quuickview-btn" data-bs-toggle="modal">
+                                                                <a href="{% url 'front:product_detail' product.id %}" data-tippy="Tezkor ko'rish" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                                    <i class="pe-7s-look"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="{% url 'front:add_cart' product.code %}" data-tippy="Savatga qo'shish" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                                    <i class="pe-7s-cart"></i>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="product-content">
+                                             <br>
+                                             
+                                                    <a class="product-name" href="{% url 'front:product_detail' product.id %}">
+                                                        <h3>{{product.name}}</h3>
+                                                       </a>
+                                                       <p class="short-desc mb-0">{{product.body}}
+                                                    </p>   
+                                                    <div class="price-box pb-1">
+                                                        <span class="new-price">{{product.price}} sum</span>
+                                                    </div>
+                                                    <div class="rating-box">
+                                                        <ul>
+                                                            <li><i class="fa fa-star"></i></li>
+                                                            <li><i class="fa fa-star"></i></li>
+                                                            <li><i class="fa fa-star"></i></li>
+                                                            <li><i class="fa fa-star"></i></li>
+                                                            <li><i class="fa fa-star"></i></li>
+                                                        </ul>
+                                                        
+                                                    </div>
+                                                   
+                                                </div>
+                                                
+                                            </div>
+                                           
+                                        </div>
+                                        {% endfor %}
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="bestseller" role="tabpanel" aria-labelledby="bestseller-tab">
+                                <div class="product-item-wrap row">
+                                    {% for product in products %}
+                                        <div class="col-md-4 col-sm-6">
+                                           
+                                            <div class="product-item">
+                                                
+                                                <div class="product-img">
+                                                    <a href="{% url 'front:product_detail' product.id %}">
+                                                        <img class="primary-img" src="{{product.banner_img.url}}" alt="Product Images">
+                                                        <img class="secondary-img" src="{{product.banner_img.url}}" alt="Product Images">
+                                                    </a>
+                                                    <div class="product-add-action">
+                                                        <ul>
+                                                            <li>
+                                                                <a href="wishlist.html" data-tippy="Sevimlilarga qo'shish" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                                    <i class="pe-7s-like"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li class="quuickview-btn" data-bs-toggle="modal">
+                                                                <a href="{% url 'front:product_detail' product.id %}" data-tippy="Tezkor ko'rish" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                                    <i class="pe-7s-look"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="{% url 'front:add_cart' product.code %}" data-tippy="Savatga qo'shish" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                                    <i class="pe-7s-cart"></i>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="product-content">
+                                               <br>
+                                                    <a class="product-name" href="{% url 'front:product_detail' product.id %}">
+                                                        <h3>{{product.name}}</h3>
+                                                       </a>
+                                                       <p class="short-desc mb-0">{{product.body}}
+                                                    </p>   
+                                                    <div class="price-box pb-1">
+                                                        <span class="new-price">{{product.price}} sum</span>
+                                                    </div>
+                                                    <div class="rating-box">
+                                                        <ul>
+                                                            <li><i class="fa fa-star"></i></li>
+                                                            <li><i class="fa fa-star"></i></li>
+                                                            <li><i class="fa fa-star"></i></li>
+                                                            <li><i class="fa fa-star"></i></li>
+                                                            <li><i class="fa fa-star"></i></li>
+                                                        </ul>
+                                                        
+                                                    </div>
+                                                   
+                                                </div>
+                                                
+                                            </div>
+                                           
+                                        </div>
+                                        {% endfor %}
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="latest" role="tabpanel" aria-labelledby="latest-tab">
+                                <div class="product-item-wrap row">
+                                    {% for product in products %}
+                                        <div class="col-md-4 col-sm-6">
+                                           
+                                            <div class="product-item">
+                                                
+                                                <div class="product-img">
+                                                    <a href="{% url 'front:product_detail' product.id %}">
+                                                        <img class="primary-img" src="{{product.banner_img.url}}" alt="Product Images">
+                                                        <img class="secondary-img" src="{{product.banner_img.url}}" alt="Product Images">
+                                                    </a>
+                                                    <div class="product-add-action">
+                                                        <ul>
+                                                            <li>
+                                                                <a href="wishlist.html" data-tippy="Sevimlilarga qo'shish" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                                    <i class="pe-7s-like"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li class="quuickview-btn" data-bs-toggle="modal">
+                                                                <a href="{% url 'front:product_detail' product.id %}" data-tippy="Tezkor ko'rish" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                                    <i class="pe-7s-look"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="{% url 'front:add_cart' product.code %}" data-tippy="Savatga qo'shish" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                                    <i class="pe-7s-cart"></i>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="product-content">
+                                                <br>
+                                                    <a class="product-name" href="{% url 'front:product_detail' product.id %}">
+                                                        <h3>{{product.name}}</h3>
+                                                       </a>
+                                                       <p class="short-desc mb-0">{{product.body}}
+                                                    </p>   
+                                                    <div class="price-box pb-1">
+                                                        <span class="new-price">{{product.price}} sum</span>
+                                                    </div>
+                                                    <div class="rating-box">
+                                                        <ul>
+                                                            {% for i in rating %}
+                                                            {% if i <= mark %}
+                                                            <li><i class="fa fa-star"></i></li>                                      
+                                                            {% else %}
+                                                            <li><i class="fa fa-star-o"></i></li>                                      
+                                                            {% endif %}
+                                                            {% endfor %}
+                                                        </ul>
+                                                        
+                                                    </div>
+                                                   
+                                                </div>
+                                                
+                                            </div>
+                                           
+                                        </div>
+                                        {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Product Area End Here -->
+
+        <!-- Begin Banner Area -->
+        <!-- <div class="banner-with-counter">
+            <div class="banner-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="banner-boxshadow">
+                                <div class="banner-item" data-bg-image="{% static 'front/images/banner/3-1-1208x542.jpg' %}">
+                                    <div class="popup-btn">
+                                        <a class="popup-vimeo wave-btn" href="https://player.vimeo.com/video/172601404?autoplay=1' %}">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <div class="icon">
+                                                <i class="pe-7s-play"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="counter-area">
+                <div class="container">
+                    <h2 class="counter-title">Lorem ipsum dolor sit amet, consectetur adipisicing <br> elit, sed do
+                        <span>eiusmod tempor</span> incididunt.
+                    </h2>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 col-6">
+                            <div class="counter-item">
+                                <div class="count-wrap">
+                                    <h3 class="count mb-0" data-counterup-time="500">150</h3>
+                                    <span class="prefix">+</span>
+                                </div>
+                                <h4 class="count-title mb-0">Projects</h4>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-6">
+                            <div class="counter-item">
+                                <div class="count-wrap">
+                                    <h3 class="count mb-0" data-counterup-time="1000">359</h3>
+                                    <span class="prefix">+</span>
+                                </div>
+                                <h4 class="count-title mb-0">Clients</h4>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-6 pt-4 pt-md-0">
+                            <div class="counter-item">
+                                <div class="count-wrap">
+                                    <h3 class="count mb-0" data-counterup-time="1500">251</h3>
+                                    <span class="prefix">+</span>
+                                </div>
+                                <h4 class="count-title mb-0">Rating</h4>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-6 pt-4 pt-lg-0">
+                            <div class="counter-item">
+                                <div class="count-wrap">
+                                    <h3 class="count mb-0" data-counterup-time="2000">110</h3>
+                                    <span class="prefix">+</span>
+                                </div>
+                                <h4 class="count-title mb-0">Award</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- Banner Area End Here -->
+
+        <!-- Begin Product Area -->
+        <!-- <div class="product-area section-space-top-100 section-space-bottom-90">
+            <div class="container">
+                <div class="row">
+                    <div class="section-title-wrap without-tab">
+                        <h2 class="section-title">New Products</h2>
+                        <p class="section-desc">Contrary to popular belief, Lorem Ipsum is not simply random text. It has
+                            roots in a piece of classical Latin literature
+                        </p>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="swiper-container product-slider">
+                            <div class="swiper-wrapper">
+                                {% for product in products %}
+                                <div class="swiper-slide product-item">
+                                    <div class="product-img">
+                                        <a href="{% url 'front:product_detail' product.id %}">
+                                            <img class="primary-img" src="{{product.banner_img.url}}" alt="Product Images">
+                                            <img class="secondary-img" src="{{product.banner_img.url}}" alt="Product Images">
+                                        </a>
+                                        <div class="product-add-action">
+                                            <ul>
+                                                <li>
+                                                    <a href="wishlist.html" data-tippy="Add to wishlist" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                        <i class="pe-7s-like"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="quuickview-btn" data-bs-toggle="modal">
+                                                    <a href="{% url 'front:product_detail' product.id %}" data-tippy="Quickview" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                        <i class="pe-7s-look"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url 'front:add_cart' product.code %}" data-tippy="Add to cart" data-tippy-inertia="true" data-tippy-animation="shift-away" data-tippy-delay="50" data-tippy-arrow="true" data-tippy-theme="sharpborder">
+                                                        <i class="pe-7s-cart"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <a class="product-name" href="{% url 'front:product_detail' product.id %}">
+                                            {{product.name}}
+                                           </a>
+                                           <p class="short-desc mb-0">{{product.body}}
+                                        </p>   
+                                        <div class="price-box pb-1">
+                                            <span class="new-price">{{product.price}}$</span>
+                                        </div>
+                                        <div class="rating-box">
+                                            <ul>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                            </ul>
+                                            
+                                        </div>
+                                       
+                                    </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- Product Area End Here -->
+
+        <!-- Begin Banner Area -->
+        <!-- <div class="banner-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="banner-bg-image img-hover-effect" data-bg-image="{% static 'front/images/banner/4-1-1170x400.jpg' %}">
+                            <div class="inner-content">
+                                <span class="offer">Only Today</span>
+                                <h2 class="title">Indoore Plants & Poot</h2>
+                                <h3 class="discount">Up To <span>-50%</span> Off</h3>
+                                <div class="button-wrap">
+                                    <a class="btn btn-custom-size btn-pronia-primary" href="shop.html">Shop Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- Banner Area End Here -->
+
+        <!-- Begin Testimonial Area -->
+        <!-- <div class="testimonial-area section-space-top-100 section-space-bottom-95">
+            <div class="container-fluid px-10">
+                <div class="section-title-wrap">
+                    <h2 class="section-title mb-7">What Say Client</h2>
+                    <p class="section-desc mb-10">Contrary to popular belief, Lorem Ipsum is not simply random text. It has
+                        roots in a piece of classical Latin literature
+                    </p>
+                </div>
+            </div>
+            <div class="container">
+                <div class="swiper-container testimonial-slider">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide testimonial-item">
+                            <div class="user-info mb-3">
+                                <div class="user-shape-wrap">
+                                    <div class="user-img">
+                                        <img src="{% static 'front/images/testimonial/user/1.png' %}" alt="User Image">
+                                    </div>
+                                </div>
+                                <div class="user-content text-charcoal">
+                                    <h4 class="user-name mb-1">Phoenix Baker</h4>
+                                    <span class="user-occupation">Client</span>
+                                </div>
+                            </div>
+                            <p class="user-comment mb-6">Lorem ipsum dolor sit amet, conse adipisic elit, sed do eiusmod
+                                tempo
+                                incididunt ut labore et dolore. magna
+                            </p>
+                        </div>
+                        <div class="swiper-slide testimonial-item">
+                            <div class="user-info mb-3">
+                                <div class="user-shape-wrap">
+                                    <div class="user-img">
+                                        <img src="{% static 'front/images/testimonial/user/2.png' %}" alt="User Image">
+                                    </div>
+                                </div>
+                                <div class="user-content text-charcoal">
+                                    <h4 class="user-name mb-1">Phoenix Baker</h4>
+                                    <span class="user-occupation">Client</span>
+                                </div>
+                            </div>
+                            <p class="user-comment mb-6">Lorem ipsum dolor sit amet, conse adipisic elit, sed do eiusmod
+                                tempo
+                                incididunt ut labore et dolore. magna
+                            </p>
+                        </div>
+                        <div class="swiper-slide testimonial-item">
+                            <div class="user-info mb-3">
+                                <div class="user-shape-wrap">
+                                    <div class="user-img">
+                                        <img src="{% static 'front/images/testimonial/user/3.png' %}" alt="User Image">
+                                    </div>
+                                </div>
+                                <div class="user-content text-charcoal">
+                                    <h4 class="user-name mb-1">Phoenix Baker</h4>
+                                    <span class="user-occupation">Client</span>
+                                </div>
+                            </div>
+                            <p class="user-comment mb-6">Lorem ipsum dolor sit amet, conse adipisic elit, sed do eiusmod
+                                tempo
+                                incididunt ut labore et dolore. magna
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-pagination without-absolute"></div>
+                </div>
+            </div>
+        </div> -->
+        <!-- Testimonial Area End Here -->
+
+
+{% endblock %}
